@@ -28,6 +28,10 @@ public class AutoresService {
 	
 	@Autowired 
 	private ObrasRepository obrasRepository;
+	
+	public AutoresService(AutoresRepository repository) {
+        this.autoresRepository = repository;
+     }
 
 	public List<Autores> listaTodos() {
 		return autoresRepository.findAll();

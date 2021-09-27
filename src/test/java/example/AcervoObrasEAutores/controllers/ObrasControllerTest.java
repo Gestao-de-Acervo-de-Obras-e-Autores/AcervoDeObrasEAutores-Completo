@@ -11,6 +11,7 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.springframework.http.ResponseEntity;
 
 import example.AcervoObrasEAutores.domain.Autores;
 import example.AcervoObrasEAutores.domain.Obras;
@@ -54,8 +55,9 @@ public class ObrasControllerTest {
 
 		when(repositorioMock.consultaObra(Long.valueOf(1))).thenReturn(teste);
 
-		/*Optional<Obras> retorno = controllerMock.consultarObra(Long.valueOf(1));
-		assertNotNull(retorno);*/
+		ResponseEntity<?> retorno = controllerMock.consultarObra(Long.valueOf(1));
+		
+		assertNotNull(retorno);
 	}
 
 }

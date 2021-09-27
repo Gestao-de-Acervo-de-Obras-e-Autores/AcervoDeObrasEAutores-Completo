@@ -14,7 +14,7 @@ import example.AcervoObrasEAutores.exceptions.Exception;
 
 /**
  * @author Grupo 1 : Débora, Larissa, Maia, Roberta, Stefane, Viviane
- * @since Planejamento, Sprint 2 da apliacação
+ * @since Planejamento, Sprint 2 da aplicação
  * @version 1.4
  * 
  * 
@@ -27,6 +27,10 @@ public class AutoresController {
 
 	@Autowired
 	private AutoresService autoresService;
+	
+	public AutoresController(AutoresService repository) {
+        this.autoresService = repository;
+    }
 	
 	@GetMapping("/autores")
 	public List<Autores> listarTodosOsAutores(){
