@@ -35,9 +35,11 @@ public class ObrasServiceTest {
 			autores.add(new Autores("Autor 1", "Pais 1", "CPF 1", "Data de Nascimento 1"));
 			autores.add(new Autores("Autor 2", "Pais 2", "CPF 2", "Data de Nascimento 2"));
 			obras.get(0).setId(Long.valueOf(1));
+			autores.get(0).setId(Long.valueOf(1));
+			autores.get(1).setId(Long.valueOf(2));
 			obras.get(0).setAutores(autores);
 			obras.get(0).setAutores(autores);
-				
+			
 			when(repositorioMock.findAll())
 								.thenReturn(obras);
 
@@ -47,25 +49,34 @@ public class ObrasServiceTest {
 			log.info("Obra 1 - Informações: " + retorno.get(0).toString());
 			log.info("Obra 1 - Autores: " + retorno.get(0).getAutores().toString());
 			assertNotNull(obras.get(0).getAutores().equals(autores));
+			log.info("------------------------------------------------------------");
 		}
 		
 		@Test
 		public void findByIdTest(){
-			Optional<Obras> teste = Optional.of(new Obras("Nome 1", "Descrição 1", "Data de Publicação 1"));
-			teste.get().setId(Long.valueOf(1));
-			teste.get().setAutores(autores);
+			Optional<Obras> obras = Optional.of(new Obras("Nome 64", "Descrição 64", "Data de Publicação 64"));
+			autores.add(new Autores("Autor 1", "Pais 1", "CPF 1", "Data de Nascimento 1"));
+			obras.get().setId(Long.valueOf(64));
+			autores.get(0).setId(Long.valueOf(1));
+			obras.get().setAutores(autores);
 
-			when(repositorioMock.findById(Long.valueOf(1))).thenReturn(teste);
+			when(repositorioMock.findById(Long.valueOf(64))).thenReturn(obras);
 
-			Optional<Obras> retorno = controllerMock.consultaObra(Long.valueOf(1));
+			Optional<Obras> retorno = controllerMock.consultaObra(Long.valueOf(64));
 			assertNotNull(retorno);
-			assertNotNull(teste.get().getAutores().equals(autores));
+			assertNotNull(obras.get().getAutores().equals(autores));
+			log.info("Obra 64 - Informações: " + retorno.toString());
+			log.info("Obra 64 - Autores: " + retorno.get().getAutores().toString());
+			log.info("----------------Teste FindById OK!---------------------");
 		}
 		
 		@Test
 		public void deletaObraTest() {
 			controllerMock.excluiObra(1L);
 			Mockito.verify(repositorioMock, Mockito.times(1)).deleteById(1L);
+			
+			log.info("Obra Apagada com Sucesso");
+			log.info("-------------------------------------------------------");
 		}
 	
 }
