@@ -84,3 +84,83 @@ A maior prioridade do projeto é levar satisfação e ótima funcionalidade ao s
 6. **Fatores de Sucesso do Produto** 
 
 O sucesso será determinado através do funcionamento do Sistema de Controle de Acervo de Obras correspondente aos requisitos solicitados. Entre eles os procedimentos esperados referente ao CRUD, como também a boa compreensão de como o sistema funciona através do intuitivo do usuário. 
+
+
+
+# Casos de Teste
+
+**Casos de Teste Controle De Obras** 
+
+ 
+
+**Regra de Negócio:** Cada obra deverá ter 1 (um) ou n autor(es). 
+
+ 
+
+**CT 005 – Verificação de Autor** **(Obra Existente)** 
+
+**Objetivo do Teste:** Verificar se ao fazer a listagem das Obras, o autor referente a obra também é listado. 
+
+**Pré-condições:** Fazer a listagem da obra através do GET. 
+
+**Ações do Passo:** 
+
+1. Acessar Postman> adicionar a opção GET no select > adicionar corretamente a URL > clicar em Send. 
+
+1. Verifique se foram retornados os dados requeridos com sucesso e também os dados do autor.  
+
+**Resultados Esperados:** 
+
+1. Sistema exibe os dados requeridos, após o click do botão Send. 
+
+1. O Response é o conjunto de dados requeridos de Obras, existindo também os dados do Autor. 
+
+ 
+
+**Regras de Negócio:** A partir de uma obra deverá ser possível acessar o(s) autor(es). 
+
+ 
+
+**CT 010 – Acessar Autores** **(Obra Existente)** 
+
+**Objetivo do Teste:** Verificar se ao realizar listagem de uma Obra no Sistema, também é possível visualizar o(s) autor(es). 
+
+**Pré-condições:** Estar na URL correta para verificação da listagem de uma Obra, além dos dados de Autor(es) vinculados a ela. 
+
+**Ações do Passo:** 
+
+1. Acessar Postman> adicionar a opção GET no select > adicionar corretamente a URL > clicar em Send. 
+
+1. Verifique se além da obra, também foram retornados os dados dos autores.  
+
+**Resultados Esperados:** 
+
+1. Sistema exibe os dados requeridos, após o click do botão Send. 
+
+1. O Response é o conjunto de dados requeridos da Obra e também do(s) Autor(es) vinculadas a ela. 
+
+ 
+
+ 
+
+**Regras de Negócio:** A partir de um autor deverá ser possível acessar a(s) obra(s). 
+
+ 
+
+**CT 019 – Acessar Obras** **(Obra Existente)** 
+
+**Objetivo do Teste:** Verificar se ao realizar listagem de um Autor no Sistema, também é possível visualizar a(s) obra(s). 
+
+**Pré-condições:** Estar na URL correta para verificação da listagem de um Autor, além dos dados de Obra(s) vinculados a ele. 
+
+**Ações do Passo:** 
+
+1. Acessar Postman> adicionar a opção GET no select > adicionar corretamente a URL > clicar em Send. 
+
+1. Verifique se além das obras, também foram retornados os dados dos autores.  
+
+**Resultados Esperados:** 
+
+1. Sistema exibe os dados requeridos, após o click do botão Send. 
+
+1. O Response é o conjunto de dados requeridos do Autor e também da(s) Obra(s) vinculadas a ele. 
