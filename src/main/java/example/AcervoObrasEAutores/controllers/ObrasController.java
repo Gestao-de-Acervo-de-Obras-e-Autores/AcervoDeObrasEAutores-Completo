@@ -34,6 +34,10 @@ public class ObrasController {
 	@Autowired
 	private ObrasService obrasService;
 	
+	ObrasController(ObrasService repository) {
+	   this.obrasService = repository;
+    }
+	
 	@GetMapping("/obras")
     public List<Obras> listarTodasAsObras(){
         return obrasService.listaTodas();
