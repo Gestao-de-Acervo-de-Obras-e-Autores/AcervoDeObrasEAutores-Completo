@@ -67,7 +67,7 @@ public class ObrasControllerTest {
 		
 		assertNotNull(retorno);
 		assertNotNull(teste.get().getAutores().equals(autores));
-		log.info("----------------Teste FindById OK!---------------------");
+		log.info("----------------Teste FindById Controller OK!---------------------");
 	}
 
 }
