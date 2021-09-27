@@ -22,6 +22,10 @@ import example.AcervoObrasEAutores.services.ObrasService;
 public class ObrasServiceTest {
 
 		private static final Logger log = LoggerFactory.getLogger(ObrasServiceTest.class);
+		
+		/**
+		 * Fazendo Mock utilizando ObrasRepository e ObrasService 
+		 */
 
 		@Mock ObrasRepository repositorioMock = mock(ObrasRepository.class);
 		ObrasService controllerMock = new ObrasService(repositorioMock);
@@ -29,6 +33,10 @@ public class ObrasServiceTest {
 		List<Obras> obras = new ArrayList<Obras>();
 		List<Autores> autores = new ArrayList<Autores>();
 		
+		/**
+		 * Validando a Regra de Negócio em Service:
+		 * Cada obra deverá ter 1 (um) ou n autor(es).
+		 */
 		@Test
 		public void findAllObrasMaisAutoresTest() {	
 			obras.add(new Obras("Nome 1", "Descrição 1", "Data Publicação 1"));
@@ -52,6 +60,10 @@ public class ObrasServiceTest {
 			log.info("------------------------------------------------------------");
 		}
 		
+		/**
+		 * Validando a Regra de Negócio em Service:
+		 * A partir de uma obra deverá ser possível acessar o(s) autor(es).
+		 */
 		@Test
 		public void findByIdTest(){
 			Optional<Obras> obras = Optional.of(new Obras("Nome 64", "Descrição 64", "Data de Publicação 64"));
@@ -70,6 +82,9 @@ public class ObrasServiceTest {
 			log.info("----------------Teste FindById OK!---------------------");
 		}
 		
+		/**
+		 * Validando o método excluiObra() em Service.
+		 */
 		@Test
 		public void deletaObraTest() {
 			controllerMock.excluiObra(1L);

@@ -30,6 +30,10 @@ public class ObrasControllerTest {
 	List<Obras> obras = new ArrayList<Obras>();
 	List<Autores> autores = new ArrayList<Autores>();
 	
+	/**
+	 * Validando a Regra de Negócio em Controller:
+	 * Cada obra deverá ter 1 (um) ou n autor(es).
+	 */
 	@Test
 	public void findAllTest() {
 		obras.add(new Obras("Nome 1", "Descrição 1", "Data Publicação 1"));
@@ -53,6 +57,10 @@ public class ObrasControllerTest {
 		log.info("------------------------------------------------------------");
 	}
 
+	/**
+	 * Validando a Regra de Negócio em Service:
+	 * A partir de uma obra deverá ser possível acessar o(s) autor(es).
+	 */
 	@Test
 	public void findByIdTest(){
 		Optional<Obras> teste = Optional.of(new Obras("Nome 64", "Descrição 64", "Data de Publicação 64"));

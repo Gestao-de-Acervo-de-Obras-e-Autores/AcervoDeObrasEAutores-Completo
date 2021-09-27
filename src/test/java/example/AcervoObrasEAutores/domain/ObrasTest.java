@@ -21,7 +21,10 @@ import example.AcervoObrasEAutores.repositories.ObrasRepository;
 
 
 class ObrasTest {
-
+	
+	/**
+	 * Validando o POJO da Classe Obras.
+	 * */
 	private static final Logger log = LoggerFactory.getLogger(ObrasTest.class);
 	
 	private List<Obras> obras =  new ArrayList<Obras>();
