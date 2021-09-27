@@ -1,24 +1,20 @@
 package example.AcervoObrasEAutores.controllers;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 
-import example.AcervoObrasEAutores.controllers.AutoresController;
-import example.AcervoObrasEAutores.controllers.ObrasController;
 import example.AcervoObrasEAutores.domain.Autores;
 import example.AcervoObrasEAutores.domain.Obras;
 import example.AcervoObrasEAutores.services.AutoresService;
-import example.AcervoObrasEAutores.services.ObrasService;
 
 class AutoresControllerTest {
 	
@@ -54,8 +50,8 @@ class AutoresControllerTest {
 		obras.get(1).setAutores(autores);
 		
 
-        /*List<Obras> retorno = controllerMock.listarTodosOsAutores(Long.valueOf(1));
-        List<Obras> retorno2 = controllerMock.listarTodosOsAutores(Long.valueOf(2));
+        ResponseEntity<?> retorno = controllerMock.listarObrasDoAutor(Long.valueOf(1));
+        ResponseEntity<?> retorno2 = controllerMock.listarObrasDoAutor(Long.valueOf(2));
         
         assertNotNull(retorno);
         assertNotNull(obras.get(0).getAutores().equals(obras));
@@ -65,7 +61,7 @@ class AutoresControllerTest {
         assertNotNull(retorno2);
         assertNotNull(obras.get(0).getAutores().equals(obras));
         assertNotNull(obras.get(1).getAutores().equals(obras));
-        log.info("autor " +Long.valueOf(2));*/
+        log.info("autor " +Long.valueOf(2));
     }
     
 
